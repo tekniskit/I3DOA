@@ -3,8 +3,7 @@
 
 namespace doa {
 
-    template <class T>
-    class Node {
+    template <class T> class Node {
 
     public:
         Node(T i = 0, Node* n = nullptr)
