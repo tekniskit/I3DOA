@@ -67,7 +67,7 @@ namespace doa {
 
     // Precondition:
     // Postcondition: Return whether all items are unique.
-    // Time complexity: O(log(N))
+    // Time complexity: O(N^2)
     bool Vector::allUnique()
     {
         for (int i = 0; i < SIZE; i++) {
