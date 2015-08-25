@@ -73,6 +73,26 @@ namespace doa {
             std::cout << "/" << std::endl;
         }
 
+        // Precondition: headPtr is the head pointer of a linked list.
+        // Postcondition: headPtr points to the start of a list that is reversed with respect to the original list
+        void reverse(Node<T> *&headPtr) {
+            if (headPtr == nullptr) {
+                return;
+            }
+
+            Node<T>* left = nullptr;
+            Node<T>* right = headPtr->next;
+
+            while(right != nullptr) {
+                headPtr->next = left;
+
+                left = headPtr;
+                headPtr = right;
+                right = right->next;
+            }
+
+            headPtr->next = left;
+        }
     };
 
 }
