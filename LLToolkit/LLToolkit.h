@@ -94,6 +94,14 @@ namespace doa {
             headPtr->next = left;
         }
 
+        // Precondition: splitPtr points to the node before the split point
+        // Postcondition: A pointer is returned that points to the first node after splitPtr. The original list ends at the node pointed to by splitPtr
+        Node<T> *split(Node<T> *splitPtr) {
+            Node<T>* head = splitPtr->next;
+            splitPtr->next = nullptr;
+            return head;
+        }
+
         // Precondition: head1 and head2 each point to the head of linked lists
         // Postcondition: head1 points to a list containing head1-lists' elements followed by head2-lists element.
         void join(Node<T> *&head1, Node<T> *head2) {
