@@ -56,6 +56,14 @@ namespace doa {
         }
 
         // Precondition: headPtr is the head pointer of a linked list.
+        // Postcondition: All nodes of the list have been deleted, and the headPtr is NULL.
+        void clear(Node<T> *&headPtr) {
+            while (headPtr != nullptr) {
+                headRemove(headPtr);
+            }
+        }
+
+        // Precondition: headPtr is the head pointer of a linked list.
         // Postcondition: The data item of each Node in the list has been printed to the screen.
         void print(Node<T> *headPtr) {
             for (Node<T> *node = headPtr; node != nullptr; node = node->next) {
