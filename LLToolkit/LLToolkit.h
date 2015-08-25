@@ -93,6 +93,27 @@ namespace doa {
 
             headPtr->next = left;
         }
+
+        // Precondition: head1 and head2 each point to the head of linked lists
+        // Postcondition: head1 points to a list containing head1-lists' elements followed by head2-lists element.
+        void join(Node<T> *&head1, Node<T> *head2) {
+            if (head2 == nullptr) {
+                return;
+            }
+
+            if (head1 == nullptr) {
+                head1 = head2;
+                return;
+            }
+
+            Node<T> *end = head1;
+
+            while(end->next != nullptr) {
+                end = end->next;
+            }
+
+            end->next = head2;
+        }
     };
 
 }
