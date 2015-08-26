@@ -159,6 +159,24 @@ namespace doa {
             head = newHead;
         }
 
+        // Precondition: head points to the head of a linked list
+        // Postcondition: The list is rotated right once - if it was 1-2-3-4, it is now 4-1-2-3
+        void rotateRight(Node<T> *&head) {
+            if (head == nullptr) {
+                return;
+            }
+
+            Node<T> *end = head;
+
+            while(end->next->next != nullptr) {
+                end = end->next;
+            }
+
+            end->next->next = head;
+            head = end->next;
+            end->next = nullptr;
+        }
+
     };
 
 }
