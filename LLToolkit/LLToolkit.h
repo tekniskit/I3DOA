@@ -102,6 +102,22 @@ namespace doa {
             return head;
         }
 
+        // Precondition: values points to an array of at least size n
+        // Postcondition: A pointer is returned that points to the head of a list in which the nodes contains values from the array values
+        Node<T> *build(T *values, size_t n) {
+            if (n == 0) {
+                return nullptr;
+            }
+
+            Node<T>* head = new Node<T>(values[n-1]);
+
+            for(int i = n-2; i >= 0; i--) {
+                headInsert(head, values[i]);
+            }
+
+            return head;
+        }
+
         // Precondition: head1 and head2 each point to the head of linked lists
         // Postcondition: head1 points to a list containing head1-lists' elements followed by head2-lists element.
         void join(Node<T> *&head1, Node<T> *head2) {
