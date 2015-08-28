@@ -35,7 +35,7 @@ namespace doa {
 
         // Precondition:
         // Postcondition: Return whether all items are unique.
-        // Time complexity: O(N^2)
+        // Time complexity: O(N^2). Kommer fra (n+1)*n/2
         bool allUnique();
 
     private:
