@@ -54,7 +54,7 @@ namespace doa {
         }
 
         // Precondition:
-        // Postcondition:   Prints the stack to standard out.
+        // Postcondition:   Prints the queue to standard out.
         // Time complexity: O(N)
         void print() {
             llToolkit.print(headPtr);
