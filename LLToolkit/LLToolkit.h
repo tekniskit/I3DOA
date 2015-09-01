@@ -21,6 +21,9 @@ namespace doa {
         // Postcondition: The head element has been removed and headPtr is updated to point to the new head element
         // Time complexity: O(1)
         void headRemove(Node<T> *&headPtr) {
+            if (headPtr == nullptr)
+                throw "Can't remove head. List is already empty.";
+
             Node<T> *condemned = headPtr;
             headPtr = headPtr->next;
             delete condemned;
