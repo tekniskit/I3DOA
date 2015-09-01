@@ -23,7 +23,7 @@ namespace doa {
             llToolkit.headRemove(headPtr);
         }
 
-        T top() {
+        T front() {
             if (isEmpty())
                 throw "Stack is empty";
 
