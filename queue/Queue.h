@@ -61,9 +61,9 @@ namespace doa {
         }
 
     private:
-        Node<T> *headPtr = nullptr;
-        Node<T> *endPtr = nullptr;
-        LLToolkit<T> llToolkit;
+        doa::Node<T> *headPtr = nullptr;
+        doa::Node<T> *endPtr = nullptr;
+        doa::LLToolkit<T> llToolkit;
     };
 
 }

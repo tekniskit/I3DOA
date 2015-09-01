@@ -58,7 +58,7 @@ namespace doa {
         }
 
     private:
-        std::vector<Queue<T>> priorities;
+        std::vector<doa::Queue<T>> priorities;
     };
 
 }
