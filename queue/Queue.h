@@ -29,7 +29,7 @@ namespace doa {
 
         T front() {
             if (isEmpty())
-                throw "Stack is empty";
+                throw "Queue is empty";
 
             return headPtr->info;
         }
