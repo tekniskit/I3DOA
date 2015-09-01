@@ -14,26 +14,26 @@ namespace doa {
     class Stack {
     public:
         void push(T element) {
-            llToolkit.headInsert(head, element);
+            llToolkit.headInsert(headPtr, element);
         }
 
         void pop() {
-            llToolkit.headRemove(head);
+            llToolkit.headRemove(headPtr);
         }
 
         T top() {
             if (isEmpty())
                 throw "Stack is empty";
 
-            return head->info;
+            return headPtr->info;
         }
 
         bool isEmpty() {
-            return head == nullptr;
+            return headPtr == nullptr;
         }
 
     private:
-        Node<T> *head = nullptr;
+        Node<T> *headPtr = nullptr;
         LLToolkit<T> llToolkit;
     };
 }
