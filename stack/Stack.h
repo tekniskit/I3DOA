@@ -32,6 +32,10 @@ namespace doa {
             return headPtr == nullptr;
         }
 
+        void print() {
+            llToolkit.print(headPtr);
+        }
+
     private:
         Node<T> *headPtr = nullptr;
         LLToolkit<T> llToolkit;
