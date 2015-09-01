@@ -1,11 +1,6 @@
-//
-// Created by rsreimer on 01-09-2015.
-//
-
 #ifndef I3DOA_STACK_H
 #define I3DOA_STACK_H
 
-#include "../node/Node.h"
 #include "../LLToolkit/LLToolkit.h"
 
 namespace doa {
