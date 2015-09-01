@@ -21,8 +21,9 @@ namespace doa {
         // Postcondition: The head element has been removed and headPtr is updated to point to the new head element
         // Time complexity: O(1)
         void headRemove(Node<T> *&headPtr) {
-            if (headPtr == nullptr)
-                throw "Can't remove head. List is already empty.";
+            if (headPtr == nullptr) {
+                return;
+            }
 
             Node<T> *condemned = headPtr;
             headPtr = headPtr->next;
@@ -33,6 +34,10 @@ namespace doa {
         // Postcondition: A new Node with data=info has been inserted into the list after prevPtr
         // Time complexity: O(1)
         void insert(Node<T> *prevPtr, T info) {
+            if (prevPtr == nullptr) {
+                throw "Can't insert after nullptr.";
+            }
+
             prevPtr->next = new Node<T>(info, prevPtr->next);
         }
 
@@ -40,6 +45,10 @@ namespace doa {
         // Postcondition: The Node after prevPtr has been removed from the list
         // Time complexity: O(1)
         void remove(Node<T> *prevPtr) {
+            if (prevPtr == nullptr) {
+                return;
+            }
+
             Node<T> *condemned = prevPtr->next;
             prevPtr->next = prevPtr->next->next;
             delete condemned;
@@ -110,6 +119,10 @@ namespace doa {
         // Postcondition: A pointer is returned that points to the first node after splitPtr. The original list ends at the node pointed to by splitPtr
         // Time complexity: O(1)
         Node<T> *split(Node<T> *splitPtr) {
+            if (splitPtr == nullptr) {
+                throw "Can't split empty list.";
+            }
+
             Node<T>* head = splitPtr->next;
             splitPtr->next = nullptr;
             return head;
