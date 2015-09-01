@@ -8,6 +8,10 @@ namespace doa {
     template<class T>
     class Stack {
     public:
+        ~Stack() {
+            llToolkit.clear(headPtr);
+        }
+
         void push(T element) {
             llToolkit.headInsert(headPtr, element);
         }

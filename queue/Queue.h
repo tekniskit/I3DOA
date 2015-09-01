@@ -8,6 +8,10 @@ namespace doa {
     template<class T>
     class Queue {
     public:
+        ~Queue() {
+            llToolkit.clear(headPtr);
+        }
+
         void push(T element) {
             if (isEmpty()) {
                 llToolkit.headInsert(headPtr, element);
