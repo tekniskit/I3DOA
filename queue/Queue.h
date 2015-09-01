@@ -8,10 +8,16 @@ namespace doa {
     template<class T>
     class Queue {
     public:
+        // Precondition:
+        // Postcondition:   The linked list is deleted from the heap.
+        // Time complexity: O(N)
         ~Queue() {
             llToolkit.clear(headPtr);
         }
 
+        // Precondition:
+        // Postcondition:   The queue now contains element at the rear.
+        // Time complexity: O(1)
         void push(T element) {
             if (isEmpty()) {
                 llToolkit.headInsert(headPtr, element);
@@ -23,10 +29,16 @@ namespace doa {
             }
         }
 
+        // Precondition:
+        // Postcondition:   The front element of the queue is deleted.
+        // Time complexity: O(1)
         void pop() {
             llToolkit.headRemove(headPtr);
         }
 
+        // Precondition:    The queue is not empty.
+        // Postcondition:   Returns the front element of the queue.
+        // Time complexity: O(1)
         T front() {
             if (isEmpty())
                 throw "Queue is empty";
@@ -34,10 +46,16 @@ namespace doa {
             return headPtr->info;
         }
 
+        // Precondition:
+        // Postcondition:   Returns whether the queue is empty.
+        // Time complexity: O(1)
         bool isEmpty() {
             return headPtr == nullptr;
         }
 
+        // Precondition:
+        // Postcondition:   Prints the stack to standard out.
+        // Time complexity: O(N)
         void print() {
             llToolkit.print(headPtr);
         }
