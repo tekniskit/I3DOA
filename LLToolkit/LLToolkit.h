@@ -51,11 +51,11 @@ namespace doa {
             }
 
             Node<T> *head = new Node<T>(sourcePtr->info);
-            Node<T> *prev = head;
+            Node<T> *end = head;
 
             for (Node<T> *node = sourcePtr->next; node != nullptr; node = node->next) {
-                insert(prev, node->info);
-                prev = prev->next;
+                insert(end, node->info);
+                end = end->next;
             }
 
             return head;
