@@ -9,6 +9,9 @@ namespace doa {
     template<class T>
     class LLToolkit {
 
+        // Time complexity:
+        // N = no. elements
+
     public:
         // Precondition: 	headPtr points to the head of a list
         // Postcondition: 	Info has been inserted at the head of the list, and headPtr is updated

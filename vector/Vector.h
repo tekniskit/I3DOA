@@ -5,6 +5,9 @@ namespace doa {
 
     class Vector {
 
+        // Time complexity:
+        // N = no. elements
+
     public:
         static const int SIZE = 10;
 

@@ -7,6 +7,10 @@ namespace doa {
 
     template<class T>
     class Queue {
+
+        // Time complexity:
+        // N = no. elements
+
     public:
         // Precondition:
         // Postcondition:   The linked list is deleted from the heap.

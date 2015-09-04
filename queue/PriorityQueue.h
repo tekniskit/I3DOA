@@ -9,10 +9,15 @@ namespace doa {
 
     template<class T>
     class PriorityQueue {
+
+        // Time complexity:
+        // P = no. priorities
+        // N = no. elements
+
     public:
         // Precondition:
         // Postcondition:   The vector is resized to fit the required priorities.
-        // Time complexity: O(N)
+        // Time complexity: O(P)
         PriorityQueue(unsigned int noPriorities = 1) {
             priorities.resize(noPriorities);
         }
@@ -30,7 +35,7 @@ namespace doa {
 
         // Precondition:
         // Postcondition:   The front element is deleted.
-        // Time complexity: O(N)
+        // Time complexity: O(P)
         void pop() {
             for (int i = 0; i < priorities.size(); i++) {
                 if (!priorities[i].isEmpty()) {
@@ -42,7 +47,7 @@ namespace doa {
 
         // Precondition:    Queue is not empty.
         // Postcondition:   The front element is returned.
-        // Time complexity: O(N)
+        // Time complexity: O(P)
         T front() {
             if (isEmpty())
                 throw "Queue is empty";
@@ -56,7 +61,7 @@ namespace doa {
 
         // Precondition:
         // Postcondition:   Returns whether the queue is empty.
-        // Time complexity: O(N)
+        // Time complexity: O(P)
         bool isEmpty() {
             for (int i = 0; i < priorities.size(); i++) {
                 if (!priorities[i].isEmpty())
@@ -68,7 +73,7 @@ namespace doa {
 
         // Precondition:
         // Postcondition:   Prints the queue to standard out.
-        // Time complexity: O(N^2)
+        // Time complexity: O(P*N)
         void print() {
             for (int i = 0; i < priorities.size(); i++) {
                 priorities[i].print();
