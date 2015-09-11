@@ -1,12 +1,12 @@
-#ifndef I3DOA_STACK_H
-#define I3DOA_STACK_H
+#ifndef I3DOA_QUEUE_H
+#define I3DOA_QUEUE_H
 
-#include "../LLToolkit/LLToolkit.h"
+#include "LLToolkit.h"
 
 namespace doa {
 
     template<class T>
-    class Stack {
+    class Queue {
 
         // Time complexity:
         // N = no. elements
@@ -15,43 +15,50 @@ namespace doa {
         // Precondition:
         // Postcondition:   The linked list is deleted from the heap.
         // Time complexity: O(N)
-        ~Stack() {
+        ~Queue() {
             llToolkit.clear(headPtr);
         }
 
         // Precondition:
-        // Postcondition:   The stack now contains element at the top.
+        // Postcondition:   The queue now contains element at the rear.
         // Time complexity: O(1)
         void push(T element) {
-            llToolkit.headInsert(headPtr, element);
+            if (isEmpty()) {
+                llToolkit.headInsert(headPtr, element);
+                endPtr = headPtr;
+            }
+            else {
+                llToolkit.insert(endPtr, element);
+                endPtr = endPtr->next;
+            }
         }
 
-        // Precondition:    The stack is not empty.
-        // Postcondition:   The top element of the stack is deleted.
+        // Precondition:
+        // Postcondition:   The front element of the queue is deleted.
         // Time complexity: O(1)
         void pop() {
             llToolkit.headRemove(headPtr);
         }
 
-        // Precondition:    The stack is not empty.
-        // Postcondition:   Returns the top element of the stack.
+        // Precondition:    The queue is not empty.
+        // Postcondition:   Returns the front element of the queue.
         // Time complexity: O(1)
-        T top() {
+        T front() {
             if (isEmpty())
-                throw "Stack is empty";
+                throw "Queue is empty";
 
             return headPtr->info;
         }
 
         // Precondition:
-        // Postcondition:   Returns whether the stack is empty.
+        // Postcondition:   Returns whether the queue is empty.
         // Time complexity: O(1)
         bool isEmpty() {
             return headPtr == nullptr;
         }
 
         // Precondition:
-        // Postcondition:   Prints the stack to standard out.
+        // Postcondition:   Prints the queue to standard out.
         // Time complexity: O(N)
         void print() {
             llToolkit.print(headPtr);
@@ -59,8 +66,10 @@ namespace doa {
 
     private:
         doa::Node<T> *headPtr = nullptr;
+        doa::Node<T> *endPtr = nullptr;
         doa::LLToolkit<T> llToolkit;
     };
+
 }
 
-#endif //I3DOA_STACK_H
+#endif //I3DOA_QUEUE_H
