@@ -5,22 +5,27 @@
 
 class Field {
 public:
-    Field(std::string name, bool exit = false) : name(name), exit(exit) {
-        up = nullptr;
-        down = nullptr;
-        left = nullptr;
-        right = nullptr;
+    Field(std::string name) : name(name) {
+        setNeighbors();
+
         visited = false;
+        exit = false;
+        start = false;
         steps = 0;
     }
 
-    Field* up;
-    Field* down;
-    Field* left;
-    Field* right;
+    void setNeighbors(Field* n1 = nullptr, Field* n2 = nullptr, Field* n3 = nullptr, Field* n4 = nullptr) {
+        neighbors[0] = n1;
+        neighbors[1] = n2;
+        neighbors[2] = n3;
+        neighbors[3] = n4;
+    }
+
+    Field* neighbors[4];
     bool visited;
     int steps;
     bool exit;
+    bool start;
     std::string name;
 };
 
@@ -29,15 +34,33 @@ void maze(Field& field, int steps = 0) {
     field.visited = true;
     field.steps = steps;
 
-    std::cout << "visited " << field.name << " in " << field.steps << " steps." << std::endl;
+    std::cout << "Visited " << field.name << " in " << field.steps << " steps." << std::endl;
 
     if (field.exit) return;
 
-    if (field.up != nullptr && !field.up->visited) maze(*field.up, field.steps+1);
-    if (field.down != nullptr && !field.down->visited) maze(*field.down, field.steps+1);
-    if (field.left != nullptr && !field.left->visited) maze(*field.left, field.steps+1);
-    if (field.right != nullptr && !field.right->visited) maze(*field.right, field.steps+1);
+    for (int i=0; i<4; i++) {
+        Field* n = field.neighbors[i];
+
+        if (n != nullptr && !n->visited)
+            maze(*n, field.steps + 1);
+    }
 }
 
+void shortestPath(Field& field) {
+    std::cout << field.name << std::endl;
+
+    if (field.start) return;
+
+    Field* min = field.neighbors[0];
+
+    for (int i=1; i<4; i++) {
+        Field* n = field.neighbors[i];
+
+        if (n != nullptr && n->steps < min->steps)
+            min = n;
+    }
+
+    shortestPath(*min);
+}
 
 #endif //I3DOA_MAZE_H
