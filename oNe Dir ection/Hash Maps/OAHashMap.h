@@ -129,6 +129,7 @@ private:
 	{
 		// YOUR IMPLEMENTATION GOES HERE!!!
 		size_t indexLocal = hash(key);
+		if ( map[indexLocal]
 	}
 
 	size_t hash(const T& key)
